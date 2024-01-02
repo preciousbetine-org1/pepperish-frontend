@@ -1,0 +1,28 @@
+.header {
+  display: grid;
+  align-items: center;
+  background-color: var(--brown-2);
+  grid-auto-flow: column;
+  width: max-content;
+  border-left: var(--size-1) solid var(--brown-3);
+}
+
+.header svg {
+  margin: 0 var(--spacing-3);
+  height: var(--size-6);
+  transition: transform 0.2s ease-in-out;
+  transform: rotate(350deg);
+}
+
+.cart-link {
+  background-color: var(--brown-4);
+  padding: var(--spacing-4);
+  color: var(--brown-1);
+  font-size: var(--font-size-1);
+  font-weight: var(--font-weight-bold);
+  text-decoration: none;
+}
+
+.header:hover svg {
+  transform: scale(1.1) rotate(5deg);
+}

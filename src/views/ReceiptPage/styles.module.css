@@ -1,0 +1,128 @@
+
+.receipt-page {
+  padding: var(--spacing-10) 0 0;
+  display: grid;
+  align-content: start;
+}
+
+.page-content {
+  padding: 0 var(--spacing-10) var(--spacing-10);
+  height: max-content;
+  min-height: 90vh;
+  display: grid;
+  gap: var(--spacing-10);
+}
+
+.page-content .sub-title {
+  font-family: var(--font-pacifico);
+  font-size: var(--font-size-5);
+  color: var(--red);
+}
+
+.page-content h2 {
+  font-size: var(--font-size-7);
+  line-height: 1.2;
+  max-width: 450px;
+  font-weight: var(--font-weight-extrabold);
+  color: var(--brown-4);
+  margin-bottom: var(--spacing-4);
+}
+
+.page-content p {
+  font-size: var(--font-size-1);
+  line-height: 1.5;
+  color: var(--black-1);
+  margin-bottom: var(--spacing-4);
+}
+
+.page-content button {
+  padding: var(--spacing-3) var(--spacing-15);
+  border: none;
+  outline: none;
+  background-color: var(--brown-2);
+  color: var(--brown-4);
+  font-size: var(--font-size-2);
+  font-weight: var(--font-weight-bold);
+  transition: transform 0.2s ease-in-out;
+  width: max-content;
+  margin: auto;
+}
+
+.page-content button:active:hover {
+  transform: scale(0.95);
+}
+
+.table-container {
+  overflow-x: auto;
+}
+
+.page-content table {
+  width: max-content;
+  min-width: 100%;
+  color: var(--brown-2);
+  font-size: var(--font-size-1);
+  border: 2px solid;
+  border-collapse: collapse;
+}
+
+.page-content th {
+  border: 1px solid;
+  text-align: left;
+  padding: var(--spacing-2);
+  color: var(--brown-3);
+}
+
+.page-content td {
+  border: 1px solid;
+  padding: var(--spacing-2);
+}
+
+.page-content tfoot {
+  font-weight: var(--font-weight-bold);
+}
+
+.page-content td:nth-child(2),
+.page-content td:nth-child(3),
+.page-content td:nth-child(4),
+.page-content td:nth-child(5),
+.page-content th:nth-child(2),
+.page-content th:nth-child(3),
+.page-content th:nth-child(4),
+.page-content th:nth-child(5) {
+  text-align: center;
+}
+
+.page-content td:nth-child(3),
+.page-content td:nth-child(4),
+.page-content td:nth-child(5) {
+  font-weight: var(--font-weight-bold);
+}
+
+.page-content tfoot td:nth-child(2),
+.page-content tfoot td:nth-child(3) {
+  color: var(--brown-4);
+}
+
+.page-content a {
+  text-decoration: none;
+  justify-self: end;
+}
+
+.page-content button {
+  background-color: var(--brown-2);
+  color: var(--brown-4);
+  font-weight: var(--font-weight-bold);
+  border: none;
+  padding: var(--spacing-3) var(--spacing-15);
+  transition: transform 0.2s ease-in-out;
+}
+
+.page-content button:active:hover {
+  transform: scale(0.95);
+}
+
+@media (max-width: 750px) {
+  .page-content {
+    padding: 0 var(--spacing-6) var(--spacing-10);
+  }
+}

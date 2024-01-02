@@ -1,0 +1,98 @@
+.container {
+  background-color: var(--brown-1);
+  display: grid;
+  max-width: 500px;
+  grid-template-columns: 70% 1fr;
+  padding: var(--spacing-4);
+  gap: var(--spacing-5);
+}
+
+.product-details {
+  display: grid;
+  gap: var(--spacing-5);
+}
+
+.product-details h3 {
+  font-weight: var(--font-weight-extrabold);
+  font-size: var(--font-size-4);
+  color: var(--black-1);
+  border-bottom: var(--size-1) solid var(--brown-4);
+  padding: var(--spacing-2) 0;
+}
+
+.product-details ul {
+  list-style: none;
+  display: grid;
+  gap: var(--spacing-1);
+  font-size: var(--font-size-2);
+  color: var(--brown-4);
+  font-weight: var(--font-weight-bold);
+}
+
+.product-details ul li {
+  display: grid;
+  grid-template-columns: 1fr max-content;
+}
+
+.cart-controls {
+  display: grid;
+  gap: var(--spacing-4);
+  align-content: start;
+  padding: var(--spacing-2) 0;
+}
+
+.amount-controls {
+  display: grid;
+  grid-template-columns: repeat(3, max-content);
+  background-color: var(--brown-2);
+  padding: var(--spacing-2);
+  border-radius: var(--radius-10);
+  justify-content: space-between;
+  gap: var(--spacing-1);
+  align-items: center;
+}
+
+.amount-controls span {
+  font-size: var(--font-size-4);
+  font-weight: var(--font-weight-semibold);
+  color: var(--black-1);
+}
+
+.cart-controls a {
+  display: grid;
+  text-decoration: none;
+}
+
+.cart-controls button {
+  border: none;
+  background-color: var(--brown-2);
+  color: var(--brown-4);
+  font-size: var(--font-size-1);
+  font-weight: var(--font-weight-bold);
+  padding: var(--spacing-2);
+  transition: transform 0.2s ease-in-out;
+}
+
+.amount-controls button {
+  border: none;
+  border-radius: var(--radius-circle);
+  width: var(--size-7);
+  height: var(--size-7);
+  background-color: var(--black-1);
+  color: var(--white);
+  font-size: var(--font-size-4);
+  font-weight: var(--font-weight-semibold);
+  display: grid;
+  place-items: center;
+  padding: 0;
+}
+
+.cart-controls button:active:hover {
+  transform: scale(0.9);
+}
+
+@media (max-width: 500px) {
+  .container {
+    grid-template-columns: 1fr;
+  }
+}

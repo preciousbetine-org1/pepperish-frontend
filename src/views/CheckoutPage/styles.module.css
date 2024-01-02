@@ -1,0 +1,102 @@
+
+.checkout-page {
+  padding: var(--spacing-10) 0 0;
+  display: grid;
+  align-content: start;
+}
+
+.page-content {
+  padding: 0 var(--spacing-10) var(--spacing-10);
+  display: grid;
+  gap: var(--spacing-10);
+}
+
+.page-content .sub-title {
+  font-family: var(--font-pacifico);
+  font-size: var(--font-size-4);
+  color: var(--red);
+}
+
+.page-content h2 {
+  font-size: var(--font-size-6);
+  line-height: 1.2;
+  font-weight: var(--font-weight-extrabold);
+  color: var(--brown-4);
+  margin-bottom: var(--spacing-6);
+}
+
+.page-content p {
+  font-size: var(--font-size-1);
+  line-height: 1.5;
+  color: var(--black-1);
+  margin-bottom: var(--spacing-6);
+}
+
+.form-groups {
+  display: grid;
+  gap: var(--spacing-4);
+}
+
+.form-group {
+  display: grid;
+  gap: var(--spacing-2);
+  color: var(--brown-4);
+  font-size: var(--font-size-2);
+  font-weight: var(--font-weight-medium);
+}
+
+.form-group input,
+.form-group select {
+  padding: var(--spacing-3);
+  border: none;
+  outline: none;
+  background-color: var(--brown-1);
+  font-size: var(--font-size-2);
+  font-weight: var(--font-weight-semibold);
+  color: var(--brown-4);
+}
+
+.checkout-summary {
+  display: grid;
+  gap: var(--spacing-2);
+}
+
+.checkout-summary div {
+  display: grid;
+  grid-template-columns: 1fr max-content;
+  gap: var(--spacing-2);
+  align-items: center;
+  background-color: var(--brown-1);
+  padding: var(--spacing-3);
+  font-size: var(--font-size-2);
+  font-weight: var(--font-weight-semibold);
+  color: var(--brown-4);
+}
+
+.checkout-summary div:last-child {
+  background-color: var(--brown-4);
+  color: var(--brown-1);
+}
+
+.page-content button {
+  padding: var(--spacing-3) var(--spacing-15);
+  border: none;
+  outline: none;
+  background-color: var(--brown-2);
+  color: var(--brown-4);
+  font-size: var(--font-size-2);
+  font-weight: var(--font-weight-bold);
+  transition: transform 0.2s ease-in-out;
+  width: max-content;
+  margin: auto;
+}
+
+.page-content button:active:hover {
+  transform: scale(0.95);
+}
+
+@media (max-width: 750px) {
+  .page-content {
+    padding: 0 var(--spacing-6) var(--spacing-10);
+  }
+}
