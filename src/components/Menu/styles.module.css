@@ -12,22 +12,14 @@
 }
 
 .menu ul {
-  border-left: var(--size-1) solid var(--brown-4);
   list-style: none;
   display: grid;
   gap: var(--spacing-3);
 }
 
-.menu li:first-child {
+.menu li {
+  border-left: var(--size-1) solid var(--brown-4);
   animation-delay: 1s;
-}
-
-.menu li:nth-child(2) {
-  animation-delay: 1.15s;
-}
-
-.menu li:nth-child(3) {
-  animation-delay: 1.2s;
 }
 
 .menu a {
