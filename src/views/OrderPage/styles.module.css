@@ -1,15 +1,52 @@
 
-.products-page hr {
+.order-page hr {
   border: none;
   border-top: var(--size-half) solid var(--brown-2);
   margin: 0 var(--spacing-10);
 }
 
-.products-page {
-  padding: var(--spacing-10) 0 0;
+.order-page {
   display: grid;
   align-content: start;
   gap: var(--spacing-10);
+  background-color: var(--brown-1);
+}
+
+.products {
+  display: grid;
+  overflow-x: hidden;
+  grid-template-columns: 700px 10px 700px;
+  scroll-behavior: smooth;
+}
+
+.products::-webkit-scrollbar {
+  display: none;
+}
+
+.dim {
+  opacity: 0.6;
+}
+
+.divider {
+  height: 100%;
+  width: 3px;
+  background-color: var(--brown-2);
+  position: relative;
+}
+
+.divider button {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: var(--brown-2);
+  border: none;
+  position: absolute;
+  top: 150px;
+  left: -25px;
+  cursor: pointer;
+  color: var(--brown-4);
+  display: grid;
+  place-content: center;
 }
 
 .product {
@@ -27,18 +64,18 @@
 .price-tag {
   font-size: var(--font-size-5);
   font-weight: var(--font-weight-bold);
-  background-color: var(--brown-1);
+  background-color: var(--brown-2);
   color: var(--black-1);
   padding: var(--spacing-2) var(--spacing-3);
 }
 
-.products-page .sub-title {
+.order-page .sub-title {
   font-family: var(--font-pacifico);
   font-size: var(--font-size-5);
   color: var(--red);
 }
 
-.products-page h2 {
+.order-page h2 {
   font-size: var(--font-size-7);
   line-height: 1.2;
   max-width: 450px;
@@ -55,7 +92,7 @@
   margin: var(--spacing-8) 0 var(--spacing-4);
 }
 
-.products-page > div p {
+.order-page > div p {
   font-size: var(--font-size-1);
   line-height: 1.6;
   color: var(--black-1);
@@ -89,11 +126,26 @@
 }
 
 @media (max-width: 750px) {
-  .products-page > div {
+  .products {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-20);
+  }
+
+  .product {
+    max-width: 100%;
     padding: 0 var(--spacing-6);
   }
 
-  .products-page hr {
-    margin: 0 var(--spacing-6);
+  .divider {
+    height: 3px;
+    width: 100%;
+  }
+
+  .divider button {
+    display: none;
+  }
+
+  .dim {
+    opacity: 1;
   }
 }

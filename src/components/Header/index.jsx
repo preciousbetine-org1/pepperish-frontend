@@ -1,36 +1,60 @@
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import Styles from './styles.module.css';
 import { useContext } from 'react';
 import applicationContext from '../../data/applicationContext';
+import { Facebook, Instagram, ShoppingCartOutlined } from '@mui/icons-material';
 
-function Header() {
+function Header({
+  backgroundColor,
+  boxShadow,
+  sticky,
+}) {
   const app = useContext(applicationContext);
 
   const numItemsInCart = app.products.reduce((sum, product) => sum + product.quantity, 0) + app.customPackage.quantity;
-  const amountOfItemsInCart = app.products.reduce((sum, product) => sum + (product.unitPrice * product.quantity), 0) +
-      app.items.reduce((sum, item) => sum + (item.quantity * item.unitPrice), 0) * app.customPackage.quantity;
 
   return (
-    <header className={`hidden ${Styles.header}`}>
-      <svg width="23" height="30" viewBox="0 0 23 30">
-        <path fill="var(--brown-4)" d="M7.10521 7.64648V5.26855H7.10276C7.10276 4.11621 7.5784 3.06641 8.3409 2.30713C9.10585 1.54541 10.1577 1.07178 11.3149 1.07178V1.07422H11.3222V1.07178C12.4795 1.07178 13.5337 1.54541 14.2962 2.30469C15.0612 3.06641 15.5344 4.11377 15.5368 5.26611H15.5344V7.67334C15.022 7.8418 14.6517 8.32031 14.6517 8.88672C14.6517 9.59229 15.2255 10.166 15.9365 10.166C16.645 10.166 17.2212 9.59229 17.2212 8.88672C17.2212 8.42773 16.9785 8.02734 16.6156 7.80273V5.26611H16.6132C16.6107 3.81836 16.0174 2.50244 15.0612 1.55029C14.1025 0.595703 12.7786 0.00244141 11.3247 0.00244141V0H11.3173V0.00244141C9.86345 0.00244141 8.54195 0.595703 7.58576 1.54785C6.62712 2.50244 6.03134 3.8208 6.03134 5.26855H6.02889V7.86865C5.71997 8.10303 5.51892 8.47168 5.51892 8.88672C5.51892 9.59229 6.09509 10.166 6.80365 10.166C7.51221 10.166 8.08837 9.59229 8.08837 8.88672C8.08592 8.28613 7.66667 7.7832 7.10521 7.64648ZM2.69449 7.68799H4.30285C4.09199 8.08105 3.96941 8.53271 3.96941 9.01123C3.96941 9.17725 3.98412 9.33838 4.01109 9.49463H3.21917L1.85599 28.1934H21.144L19.7808 9.49463H18.653C18.68 9.33838 18.6947 9.1748 18.6947 9.01123C18.6947 8.53271 18.5746 8.0835 18.3613 7.68799H20.3031C20.6488 7.68799 20.9503 7.82715 21.1734 8.04932C21.3892 8.26416 21.5265 8.55469 21.5486 8.86963L22.9926 28.6914C22.9951 28.7305 22.9975 28.7598 22.9975 28.7769C22.9975 29.1162 22.8529 29.4165 22.6298 29.6362C22.4214 29.8389 22.1394 29.9731 21.8354 29.9951C21.7962 29.9976 21.7643 30 21.7471 30H1.2504C1.23324 30 1.20136 29.9976 1.16214 29.9951C0.860569 29.9731 0.576165 29.8413 0.367765 29.6362C0.142202 29.4165 0 29.1162 0 28.7744C0 28.7573 0.00245176 28.7305 0.00490353 28.689L1.44899 8.86719C1.47106 8.55225 1.60836 8.26172 1.82411 8.04687C2.04967 7.82715 2.35124 7.68799 2.69449 7.68799ZM9.27012 7.68799H13.3964C13.1856 8.08105 13.063 8.53271 13.063 9.01123C13.063 9.17725 13.0777 9.33838 13.1047 9.49463H9.55943C9.5864 9.33838 9.60111 9.1748 9.60111 9.01123C9.60356 8.53271 9.48097 8.0835 9.27012 7.68799Z"/>
-      </svg>
-      <Link to="/cart" className={Styles['cart-link']}>
-        CART
-        {' '}
-        (
-        {numItemsInCart}
-        {' '}
-        ITEM
-        {numItemsInCart === 1 ? '' : 'S'}
-        ) -
-        {' '}
-        N
-        {' '}
-        {Number(amountOfItemsInCart).toLocaleString()}
+    <header
+      className={Styles.header}
+      style={{
+        backgroundColor,
+        boxShadow: boxShadow ? '' : 'none',
+        position: sticky ? 'sticky': 'absolute',
+      }}
+    >
+      <Link to="/" className={Styles['favicon_logo']}>
+        <img className={Styles.favicon} src="https://i.im.ge/2022/08/31/OEt2Z4.favicon.png" />
+        <img className={Styles.logo} src="https://i.im.ge/2022/08/31/OEtaGP.logo.png" />
       </Link>
+
+      <nav className={Styles.nav}>
+        <Link className={Styles['nav-link']} to="/">HOME</Link>
+        <Link className={Styles['nav-link']} to="/order">ORDER NOW</Link>
+        <div className={Styles['social-links']}>
+          <Link to="https://facebook.com/pepperish.ng" className={Styles.fb} target="_blank">
+            <Facebook />
+          </Link>
+          <Link to="https://instagram.com/pepperish.ng" className={Styles.ig} target="_blank">
+            <Instagram />
+          </Link>
+        </div>
+        <Link className={Styles['cart-link']} to="/cart">
+          <ShoppingCartOutlined />
+          <div className={Styles['cart-count']}>
+            {numItemsInCart}
+          </div>
+        </Link>
+      </nav>
+
     </header>
   )
 }
+
+Header.propTypes = {
+  backgroundColor: PropTypes.string,
+  boxShadow: PropTypes.bool,
+  sticky: PropTypes.bool,
+};
 
 export default Header;

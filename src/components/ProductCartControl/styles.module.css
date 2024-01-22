@@ -1,5 +1,5 @@
 .container {
-  background-color: var(--brown-1);
+  background-color: var(--brown-2);
   display: grid;
   max-width: 500px;
   grid-template-columns: 70% 1fr;
@@ -44,7 +44,7 @@
 .amount-controls {
   display: grid;
   grid-template-columns: repeat(3, max-content);
-  background-color: var(--brown-2);
+  background-color: var(--brown-1);
   padding: var(--spacing-2);
   border-radius: var(--radius-10);
   justify-content: space-between;
@@ -65,7 +65,7 @@
 
 .cart-controls button {
   border: none;
-  background-color: var(--brown-2);
+  background-color: var(--brown-1);
   color: var(--brown-4);
   font-size: var(--font-size-1);
   font-weight: var(--font-weight-bold);

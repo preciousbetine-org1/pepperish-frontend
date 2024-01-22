@@ -4,22 +4,11 @@ import {
   useLocation,
 } from 'react-router-dom';
 import LandingPage from './views/LandingPage';
-import Header from './components/Header';
-import IntroText from './components/IntroText';
-import Menu from './components/Menu';
-import Styles from './App.module.css';
-import ProductsPage from './views/ProductsPage';
-import CustomPackagePage from './views/CustomPackagePage';
-import EventsPage from './views/EventsPage';
 import CartPage from './views/CartPage';
-import CartSummary from './components/CartSummary';
-import CheckoutPage from './views/CheckoutPage';
-import CheckoutSummary from './components/CheckoutSummary';
-import ReceiptPage from './views/ReceiptPage';
-import ReturnHome from './components/ReturnHome';
 import { useEffect, useState } from 'react';
 import { getCustomPackageFromLocalStorage, getItemsFromLocalStorage, getProductsFromLocalStorage } from './data';
 import ApplicationContext from './data/applicationContext'
+import OrderPage from './views/OrderPage';
 
 function App() {
   const [products, setProducts] = useState(getProductsFromLocalStorage());
@@ -61,16 +50,11 @@ function App() {
       interSectionObserver2.observe(element);
     });
 
-    if (location.pathname != "/") {
-      document.getElementById("divider").scrollIntoView({
-        behavior: 'smooth',
-        block: 'start',
-      });
-    }
+    window.scrollTo(0, 0);
   }, [location.pathname]);
 
   return (
-    <div className={Styles.page}>
+    <div>
       <ApplicationContext.Provider value={{
         products,
         items,
@@ -79,29 +63,11 @@ function App() {
         setItems,
         setCustomPackage,
       }}>
-        <section className={Styles['left-section']}>
-          <Header />
-          <IntroText />
-          <hr />
-          <Routes>
-            <Route path="/receipt" element={<ReturnHome />} />
-            <Route path="/cart" element={<CartSummary />} />
-            <Route path="/checkout" element={<CheckoutSummary />} />
-            <Route path="*" element={<Menu />} />
-          </Routes>
-        </section>
-        <div className={Styles['right-section']}>
-          <div id="divider" />
-          <Routes>
-            <Route path="/receipt" element={<ReceiptPage />} />
-            <Route path="/checkout" element={<CheckoutPage />} />
-            <Route path="/cart" element={<CartPage />} />
-            <Route path="/for-events" element={<EventsPage />} />
-            <Route path="/custom-package" element={<CustomPackagePage />} />
-            <Route path="/products" element={<ProductsPage />} />
-            <Route path="/" element={<LandingPage />} />
-          </Routes>
-        </div>
+        <Routes>
+          <Route path="/cart" element={<CartPage />} />
+          <Route path="/order" element={<OrderPage />} />
+          <Route path="/" element={<LandingPage />} />
+        </Routes>
       </ApplicationContext.Provider>
     </div>
   )

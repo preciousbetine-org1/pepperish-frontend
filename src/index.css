@@ -1,5 +1,5 @@
 :root {
-  font-family: 'Sora', system-ui, Helvetica, Arial, sans-serif;
+  font-family: 'Inter', system-ui, Helvetica, Arial, sans-serif;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -49,6 +49,7 @@
   --spacing-13: 52px;
   --spacing-14: 56px;
   --spacing-15: 60px;
+  --spacing-20: 80px;
 
   --font-sora: 'Sora', sans-serif;
   --font-pacifico: 'Pacifico', sans-serif;
@@ -91,6 +92,8 @@
   --radius-9: 18px;
   --radius-10: 20px;
   --radius-circle: 50%;
+
+  scroll-behavior: smooth;
 }
 
 * {

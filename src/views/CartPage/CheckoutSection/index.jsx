@@ -1,11 +1,10 @@
 import { useContext } from 'react'
-import Footer from '../../components/Footer'
 import Styles from './styles.module.css'
 import notie from 'notie';
 import 'notie/dist/notie.css';
-import applicationContext from '../../data/applicationContext'
+import applicationContext from '../../../data/applicationContext'
 
-function CheckoutPage() {
+function CheckoutSection() {
   const app = useContext(applicationContext);
   const items = app.items;
   const products = app.products;
@@ -32,10 +31,10 @@ function CheckoutPage() {
   };
 
   return (
-    <section className={Styles['checkout-page']}>
+    <section className={Styles['checkout-section']}>
       <form className={Styles['page-content']} onSubmit={placeOrder}>
         <div className={Styles['checkout-step']}>
-          <span className={Styles['sub-title']}>Step 1</span>
+          <span className={Styles['sub-title']}>Checkout</span>
           <h2>ENTER YOUR DETAILS</h2>
 
           <div className={Styles['form-groups']}>
@@ -59,7 +58,6 @@ function CheckoutPage() {
         </div>
 
         <div className={Styles['checkout-step']}>
-          <span className={Styles['sub-title']}>Step 2</span>
           <h2>WHERE ARE YOU LOCATED?</h2>
 
           <p>
@@ -92,7 +90,6 @@ function CheckoutPage() {
         </div>
 
         <div className={Styles['checkout-step']}>
-          <span className={Styles['sub-title']}>Step 3</span>
           <h2>MAKE PAYMENT</h2>
 
           <p>
@@ -112,14 +109,14 @@ function CheckoutPage() {
             </div>
             <div>
               <span>DELIVERY FEE:</span>
-              <span>N 2,000</span>
+              <span>N 0</span>
             </div>
             <div>
               <span>TOTAL:</span>
               <span>
                 N
                 {' '}
-                {Number(totalPrice + 2000).toLocaleString()}
+                {Number(totalPrice).toLocaleString()}
               </span>
             </div>
           </div>
@@ -127,9 +124,8 @@ function CheckoutPage() {
 
         <button type="submit">PAY</button>
       </form>
-      <Footer />
     </section>
   )
 }
 
-export default CheckoutPage
+export default CheckoutSection
