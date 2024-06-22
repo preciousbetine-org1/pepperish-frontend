@@ -1,25 +1,18 @@
 import { useContext } from 'react';
 import Footer from '../../components/Footer'
-import { updateProductQuantity, updateCustomPackageQuantity } from '../../data'
+import { updateProductQuantity } from '../../data'
 import Styles from './styles.module.css'
 import applicationContext from '../../data/applicationContext';
-import { Link } from 'react-router-dom';
 import Header from '../../components/Header';
 import CheckoutSection from './CheckoutSection';
+import pepcool from '../../assets/pepcool.png';
+import pepchill from '../../assets/pepchill.png';
 
 function CartPage() {
   const app = useContext(applicationContext);
 
   const product1 = app.products[0];
   const product2 = app.products[1];
-  const customPackage = app.customPackage;
-
-  const itemsInCustomPackage = app.items.filter((item) => item.quantity > 0);
-
-  const customPackagePrice = itemsInCustomPackage.reduce(
-    (total, item) => total + item.unitPrice * item.quantity,
-    0
-  ) * customPackage.quantity;
 
   const updateProduct1Quantity = (newQuantity) => {
     updateProductQuantity(product1.id, newQuantity);
@@ -41,14 +34,6 @@ function CartPage() {
     }]);
   };
 
-  const doUpdateCustomPackageQuantity = (newQuantity) => {
-    updateCustomPackageQuantity(newQuantity);
-    app.setCustomPackage({
-      ...customPackage,
-      quantity: newQuantity,
-    });
-  };
-
   return (
     <div className={Styles['cart-page']}>
       <Header sticky boxShadow backgroundColor="white" />
@@ -56,15 +41,14 @@ function CartPage() {
       <div className={Styles.sections}>
         <div className={Styles['cart-section']}>
           <div>
-            <span className={Styles['sub-title']}>Preview</span>
-            <h2>ITEMS IN YOUR CART</h2>
+            <h2>Items in your cart</h2>
           </div>
 
           <div className={Styles['cart-items']}>
           {
               product1?.quantity > 0 ? (
                 <div className={Styles['cart-item']}>
-                  <img alt="" src="https://i.ibb.co/sC7vxJp/pepcool.png" />
+                  <img alt="Pepcool" src={pepcool} />
                   <div className={Styles['item-details']}>
                     <span className={Styles['item-name']}>Pepcool</span>
                     <div className={Styles['item-quantity']}>
@@ -96,7 +80,7 @@ function CartPage() {
             {
               product2?.quantity > 0 ? (
                 <div className={Styles['cart-item']}>
-                  <img alt="" src="https://i.ibb.co/sK1d7qK/pepchill.png" />
+                  <img alt="" src={pepchill} />
                   <div className={Styles['item-details']}>
                     <span className={Styles['item-name']}>Pepchill</span>
                     <div className={Styles['item-quantity']}>
@@ -121,57 +105,6 @@ function CartPage() {
                       {' '}
                       {product2.unitPrice * product2.quantity}
                     </span>
-                  </div>
-                </div>
-              ) : null
-            }
-            {
-              customPackage.quantity > 0 ? (
-                <div className={Styles['custom-package-cart-item']}>
-                  <div className={`${Styles['cart-item']} ${Styles['custom-package']}`}>
-                    <img alt="" src="https://i.ibb.co/k4mR4zf/custom-package.png" />
-                    <div className={Styles['item-details']}>
-                      <span className={Styles['item-name']}>Your custom package</span>
-                      <div className={Styles['item-quantity']}>
-                        <button type="button" onClick={() => {
-                          if (customPackage.quantity > 0) doUpdateCustomPackageQuantity(customPackage.quantity - 1)
-                        }}>
-                          -
-                        </button>
-                        <span>{customPackage.quantity}</span>
-                        <button type="button" onClick={() => {
-                          doUpdateCustomPackageQuantity(customPackage.quantity + 1)
-                        }}>
-                          +
-                        </button>
-                      </div>
-                    </div>
-                    <div className={Styles['total-price']}>
-                      TOTAL:
-                      {' '}
-                      <span>
-                        N
-                        {' '}
-                        {customPackagePrice}
-                      </span>
-                    </div>
-                  </div>
-                  <div className={Styles['custom-package-content']}>
-                    <h3>CONTENT</h3>
-                    <ul>
-                      {
-                        itemsInCustomPackage.map((item) => (
-                          <li key={item.id}>
-                            {item.name}
-                            {' '}
-                            x
-                            {' '}
-                            {item.quantity}
-                          </li>
-                        ))
-                      }
-                    </ul>
-                    <Link to="/custom-package">Edit package content</Link>
                   </div>
                 </div>
               ) : null

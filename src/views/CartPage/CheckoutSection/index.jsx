@@ -34,8 +34,7 @@ function CheckoutSection() {
     <section className={Styles['checkout-section']}>
       <form className={Styles['page-content']} onSubmit={placeOrder}>
         <div className={Styles['checkout-step']}>
-          <span className={Styles['sub-title']}>Checkout</span>
-          <h2>ENTER YOUR DETAILS</h2>
+          <h2>Enter your details</h2>
 
           <div className={Styles['form-groups']}>
             <div className={Styles['form-group']}>
@@ -58,7 +57,7 @@ function CheckoutSection() {
         </div>
 
         <div className={Styles['checkout-step']}>
-          <h2>WHERE ARE YOU LOCATED?</h2>
+          <h2>Delivery location</h2>
 
           <p>
             Delivery is available to only select locations in Lagos.
@@ -90,13 +89,7 @@ function CheckoutSection() {
         </div>
 
         <div className={Styles['checkout-step']}>
-          <h2>MAKE PAYMENT</h2>
-
-          <p>
-            Payments are handled by Paystack.
-            This helps to route payments through the most optimal channels,
-            ensuring a higher transaction success rate.
-          </p>
+          <h2>Payment</h2>
 
           <div className={Styles['checkout-summary']}>
             <div>

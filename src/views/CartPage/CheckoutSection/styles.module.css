@@ -9,6 +9,8 @@
   padding: 0 var(--spacing-10) var(--spacing-10);
   display: grid;
   gap: var(--spacing-10);
+  max-width: 700px;
+  margin: auto;
 }
 
 .page-content .sub-title {
@@ -18,18 +20,16 @@
 }
 
 .page-content h2 {
-  font-size: var(--font-size-6);
+  font-size: var(--font-size-8);
   line-height: 1.2;
-  font-weight: var(--font-weight-extrabold);
-  color: var(--brown-4);
-  margin-bottom: var(--spacing-6);
+  font-weight: var(--font-weight-medium);
+  margin-bottom: var(--spacing-7);
 }
 
 .page-content p {
-  font-size: var(--font-size-1);
+  font-size: var(--font-size-2);
   line-height: 1.5;
-  color: var(--black-1);
-  margin-bottom: var(--spacing-6);
+  margin-bottom: var(--spacing-9);
 }
 
 .form-groups {
@@ -40,20 +40,17 @@
 .form-group {
   display: grid;
   gap: var(--spacing-2);
-  color: var(--brown-4);
-  font-size: var(--font-size-2);
+  font-size: var(--font-size-3);
   font-weight: var(--font-weight-medium);
 }
 
 .form-group input,
 .form-group select {
   padding: var(--spacing-3);
-  border: none;
+  border: 2px solid black;
   outline: none;
-  background-color: var(--brown-1);
   font-size: var(--font-size-2);
   font-weight: var(--font-weight-semibold);
-  color: var(--brown-4);
 }
 
 .checkout-summary {
@@ -66,29 +63,25 @@
   grid-template-columns: 1fr max-content;
   gap: var(--spacing-2);
   align-items: center;
-  background-color: var(--brown-1);
+  background-color: #e9e9e9;
   padding: var(--spacing-3);
-  font-size: var(--font-size-2);
+  font-size: var(--font-size-3);
   font-weight: var(--font-weight-semibold);
-  color: var(--brown-4);
-}
-
-.checkout-summary div:last-child {
-  background-color: var(--brown-4);
-  color: var(--brown-1);
 }
 
 .page-content button {
-  padding: var(--spacing-3) var(--spacing-15);
+  padding: var(--spacing-5) var(--spacing-15);
   border: none;
   outline: none;
-  background-color: var(--brown-2);
-  color: var(--brown-4);
-  font-size: var(--font-size-2);
+  background-color: red;
+  color: white;
+  font-size: var(--font-size-4);
   font-weight: var(--font-weight-bold);
   transition: transform 0.2s ease-in-out;
   width: max-content;
   margin: auto;
+  cursor: pointer;
+  border-radius: 50rem;
 }
 
 .page-content button:active:hover {

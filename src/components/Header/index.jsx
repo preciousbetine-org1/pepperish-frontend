@@ -3,12 +3,12 @@ import PropTypes from 'prop-types';
 import Styles from './styles.module.css';
 import { useContext } from 'react';
 import applicationContext from '../../data/applicationContext';
-import { Facebook, Instagram, ShoppingCartOutlined } from '@mui/icons-material';
+import { ArrowRightAlt } from '@mui/icons-material';
+import logo from '../../assets/logo.png';
+import favicon from '../../assets/favicon.png';
 
 function Header({
   backgroundColor,
-  boxShadow,
-  sticky,
 }) {
   const app = useContext(applicationContext);
 
@@ -19,28 +19,20 @@ function Header({
       className={Styles.header}
       style={{
         backgroundColor,
-        boxShadow: boxShadow ? '' : 'none',
-        position: sticky ? 'sticky': 'absolute',
       }}
     >
       <Link to="/" className={Styles['favicon_logo']}>
-        <img className={Styles.favicon} src="https://i.im.ge/2022/08/31/OEt2Z4.favicon.png" />
-        <img className={Styles.logo} src="https://i.im.ge/2022/08/31/OEtaGP.logo.png" />
+        <img className={Styles.favicon} src={favicon} />
+        <img className={Styles.logo} src={logo} />
       </Link>
 
       <nav className={Styles.nav}>
-        <Link className={Styles['nav-link']} to="/">HOME</Link>
-        <Link className={Styles['nav-link']} to="/order">ORDER NOW</Link>
-        <div className={Styles['social-links']}>
-          <Link to="https://facebook.com/pepperish.ng" className={Styles.fb} target="_blank">
-            <Facebook />
-          </Link>
-          <Link to="https://instagram.com/pepperish.ng" className={Styles.ig} target="_blank">
-            <Instagram />
-          </Link>
-        </div>
+        <Link className={Styles['order-btn']} to="/order">
+          ORDER NOW
+          <ArrowRightAlt />
+        </Link>
         <Link className={Styles['cart-link']} to="/cart">
-          <ShoppingCartOutlined />
+          CART
           <div className={Styles['cart-count']}>
             {numItemsInCart}
           </div>
@@ -53,8 +45,6 @@ function Header({
 
 Header.propTypes = {
   backgroundColor: PropTypes.string,
-  boxShadow: PropTypes.bool,
-  sticky: PropTypes.bool,
 };
 
 export default Header;

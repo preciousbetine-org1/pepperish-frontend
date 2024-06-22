@@ -1,11 +1,11 @@
 import {
   Routes,
   Route,
-  useLocation,
 } from 'react-router-dom';
 import LandingPage from './views/LandingPage';
 import CartPage from './views/CartPage';
-import { useEffect, useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import { getCustomPackageFromLocalStorage, getItemsFromLocalStorage, getProductsFromLocalStorage } from './data';
 import ApplicationContext from './data/applicationContext'
 import OrderPage from './views/OrderPage';
@@ -15,43 +15,13 @@ function App() {
   const [items, setItems] = useState(getItemsFromLocalStorage());
   const [customPackage, setCustomPackage] = useState(getCustomPackageFromLocalStorage());
 
-  const location = useLocation();
+  const { pathname } = useLocation();
 
   useEffect(() => {
-    let elements = document.querySelectorAll(".hidden");
-
-    const interSectionObserver = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("animate");
-        }
-      });
-    }, {
-      threshold: 0.3,
-    });
-
-    elements.forEach((element) => {
-      interSectionObserver.observe(element);
-    });
-
-    elements = document.querySelectorAll(".left-hidden");
-
-    const interSectionObserver2 = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("left-to-right");
-        }
-      });
-    }, {
-      threshold: 0.3,
-    });
-
-    elements.forEach((element) => {
-      interSectionObserver2.observe(element);
-    });
-
     window.scrollTo(0, 0);
-  }, [location.pathname]);
+    document.getElementById('root').scrollTo(0, 0);
+  }, [pathname]);
+
 
   return (
     <div>

@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
 :root {
   font-family: 'Inter', system-ui, Helvetica, Arial, sans-serif;
 
@@ -51,9 +53,6 @@
   --spacing-15: 60px;
   --spacing-20: 80px;
 
-  --font-sora: 'Sora', sans-serif;
-  --font-pacifico: 'Pacifico', sans-serif;
-
   font-size: 16px;
   --font-size-1: 0.75rem;
   --font-size-2: 0.875rem;
@@ -106,53 +105,11 @@ body {
   scroll-behavior: smooth;
 }
 
-button {
-  font-family: var(--font-sora);
-}
-
 .notie-container {
-  background-color: var(--brown-4) !important;
-  font-family: var(--font-sora) !important;
-  font-size: var(--font-size-3) !important;
+  background-color: green  !important;
+  font-family: 'Inter' !important;
+  font-size: var(--font-size-4) !important;
   font-weight: var(--font-weight-medium) !important;
-  color: var(--brown-1) !important;
+  color: white !important;
   padding: var(--spacing-4) !important;
-}
-
-.hidden {
-  opacity: 0;
-}
-
-.left-hidden {
-  opacity: 0;
-}
-
-.left-to-right {
-  animation-delay: 0.5s;
-  animation: left-to-right 0.5s ease-in-out forwards;
-}
-
-.animate {
-  animation-delay: 0.5s;
-  animation: animate 0.5s ease-in-out forwards;
-}
-
-@keyframes animate {
-  0% {
-    transform: translateY(30px);
-  }
-  100% {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
-
-@keyframes left-to-right {
-  0% {
-    transform: translateX(-30px) rotate(-10deg);
-  }
-  100% {
-    transform: translateX(0);
-    opacity: 1;
-  }
 }

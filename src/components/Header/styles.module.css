@@ -5,12 +5,13 @@
   grid-template-columns: max-content max-content;
   padding: 0 var(--spacing-5);
   height: 80px;
-  position: absolute;
+  position: sticky;
   top: 0;
   width: 100%;
   z-index: 100;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  transition: 0.3s background-color ease-in-out;
+  background-color: white;
+  font-family: 'Inter', sans-serif;
 }
 
 .favicon_logo {
@@ -30,83 +31,62 @@
 
 .nav {
   display: grid;
-  grid-template-columns: repeat(6, max-content);
-  gap: var(--spacing-4);
+  grid-template-columns: repeat(2, max-content);
+  gap: var(--spacing-3);
   align-items: center;
 }
 
-.nav-link {
+.order-btn {
   color: var(--black-1);
   font-size: var(--font-size-2);
   font-weight: var(--font-weight-semibold);
+  color: white;
+  background-color: red;
+  padding: var(--spacing-3) var(--spacing-5);
+  border-radius: 50rem;
+  text-decoration: none;
+  font-weight: bold;
+
+  display: grid;
+  grid-template-columns: max-content max-content;
+  gap: var(--spacing-2);
+  align-items: center;
+
+  text-decoration-line: underline;
+  text-decoration-color: rgb(185, 60, 60);
+  text-decoration-thickness: 6px;
+  text-decoration-skip-ink: none;
+
+  text-underline-offset: -2px;
 }
 
 .cart-link {
   gap: var(--spacing-2);
   display: grid;
-  align-items: center;
-  color: black;
-  font-size: var(--font-size-2);
-  text-decoration: none;
-  position: relative;
-}
-
-.cart-link svg {
-  font-size: var(--font-size-6);
-}
-
-.cart-count {
-  background-color: var(--red);
-  width: 20px;
-  height: 20px;
-  transform: translate(50%, -50%);
-  display: grid;
-  place-items: center;
-  color: white;
-  font-size: 0.6rem;
-  font-weight: var(--font-weight-semibold);
-  border-radius: var(--radius-circle);
-  position: absolute;
-  top: 0;
-  right: 0;
-}
-
-.social-links {
-  display: grid;
   grid-template-columns: max-content max-content;
   align-items: center;
-  gap: var(--spacing-3);
-  margin-left: var(--spacing-3);
-}
-
-.social-links a {
   color: white;
-  width: 30px;
-  height: 30px;
+  font-size: var(--font-size-2);
+  text-decoration: none;
+  background-color: green;
+  padding: var(--spacing-3) var(--spacing-5);
+  border-radius: 50rem;
+  font-weight: bold;
+
+  text-decoration-line: underline;
+  text-decoration-color: rgb(31, 110, 31);
+  text-decoration-thickness: 6px;
+  text-decoration-skip-ink: none;
+
+  text-underline-offset: -2px;
+}
+
+.cart-link div {
   display: grid;
-  place-items: center;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(1, 94, 1);
   border-radius: 50%;
-}
-
-.fb {
-  background-color: #4267B2;
-}
-
-.ig {
-  background-image: linear-gradient(to right, #feda75, #fa7e1e, #962fbf );
-}
-
-.social-links a svg {
-  font-size: var(--font-size-4);
-}
-
-@media (max-width: 570px) {
-  .nav-link {
-    display: none;
-  }
-
-  .nav {
-    grid-template-columns: repeat(3, max-content);
-    gap: var(--spacing-2);
-  }
+  width: 20px;
+  height: 20px;
 }
